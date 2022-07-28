@@ -55,11 +55,17 @@ public class AddNewTask extends AppCompatDialogFragment {
                        task.setTask(editText.getText().toString());
                        task.setStatus(0);
                        db.insertTask(task);
-                       dialog.dismiss();
+                       dismiss();
                    }
                    else {
                        Toast.makeText(getActivity(),"Field Is Empty",Toast.LENGTH_SHORT).show();
                    }
+                }
+            });
+            dialog.getButton(Dialog.BUTTON_NEGATIVE).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dismiss();
                 }
             });
         }
